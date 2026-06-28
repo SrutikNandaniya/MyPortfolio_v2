@@ -1054,7 +1054,7 @@
     
       try {
         const res = await fetch(
-          "http://127.0.0.1:8000/contact",
+          "https://srutikndn.onrender.com/",
           {
             method: "POST",
             headers: {
