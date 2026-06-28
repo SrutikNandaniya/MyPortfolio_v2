@@ -1051,7 +1051,7 @@
     
       setLoading(true);
       setStatus(null);
-    
+      console.log(form);
       try {
         const res = await fetch(
           "https://srutikndn.onrender.com/contact",
@@ -1060,7 +1060,7 @@
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(FormData),
+            body: JSON.stringify(form),
           }
         );
     
