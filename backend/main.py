@@ -30,25 +30,33 @@ class Contact(BaseModel):
     subject: str
     message: str
 
+# @app.post("/contact")
+# def contact(data: Contact):
+#     body = f"""
+# Name: {data.name}
+# Email: {data.email}
+# Subject: {data.subject}
+
+# Message:
+# {data.message}
+# """
+
+#     msg = MIMEText(body)
+#     msg["Subject"] = f"Portfolio Contact - {data.subject}"
+#     msg["From"] = EMAIL
+#     msg["To"] = EMAIL
+
+#     with smtplib.SMTP("smtp.gmail.com", 587) as server:
+#         server.starttls()
+#         server.login(EMAIL, PASSWORD)
+#         server.send_message(msg)
+
+#     return {"success": True}
+
 @app.post("/contact")
 def contact(data: Contact):
-    body = f"""
-Name: {data.name}
-Email: {data.email}
-Subject: {data.subject}
-
-Message:
-{data.message}
-"""
-
-    msg = MIMEText(body)
-    msg["Subject"] = f"Portfolio Contact - {data.subject}"
-    msg["From"] = EMAIL
-    msg["To"] = EMAIL
-
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(EMAIL, PASSWORD)
-        server.send_message(msg)
-
-    return {"success": True}
+    return {
+        "success": True,
+        "email": EMAIL,
+        "password_exists": PASSWORD is not None
+    }
