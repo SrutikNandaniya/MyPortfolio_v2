@@ -19,10 +19,11 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://srutikndn1.onrender.com/"
+        "https://srutikndn1.onrender.com"
     ],   # Change later for production if needed
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True, 
 )
 
 class Contact(BaseModel):
@@ -31,7 +32,7 @@ class Contact(BaseModel):
     subject: str
     message: str
 
-@app.post("/contact")
+@app.post("https://srutikndn.onrender.com//contact")
 def contact(data: Contact):
     body = f"""
 Name: {data.name}

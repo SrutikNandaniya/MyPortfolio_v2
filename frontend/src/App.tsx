@@ -1054,12 +1054,11 @@
     
       try {
         const res = await fetch(
-          "https://srutikndn.onrender.com/",
+          "https://srutikndn.onrender.com/contact",
           {
             method: "POST",
             headers: {
-              "Content-Type":
-                "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(form),
           }
