@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="h" cx="0.35" cy="0.35" r="0.7">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="60%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- 8 Teardrop Handles -->
+  <g transform="rotate(0 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(45 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(90 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(135 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(180 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(225 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(270 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  <g transform="rotate(315 60 60)"><path d="M 60 4 C 56 4 53 8 53 14 C 53 18 56 22 60 22 C 64 22 67 18 67 14 C 67 8 64 4 60 4 Z" fill="url(#g)"/></g>
+  
+  <!-- Outer Ring -->
+  <circle cx="60" cy="60" r="38" fill="none" stroke="url(#g)" stroke-width="9"/>
+  
+  <!-- 8 Spokes -->
+  <g transform="rotate(0 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(45 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(90 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(135 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(180 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(225 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(270 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  <g transform="rotate(315 60 60)"><rect x="58.5" y="22" width="3" height="32" fill="url(#g)"/></g>
+  
+  <!-- Center Hub -->
+  <circle cx="60" cy="60" r="14" fill="url(#h)"/>
+  <circle cx="60" cy="60" r="9" fill="#0a0a0a"/>
+  <circle cx="60" cy="60" r="4" fill="url(#h)"/>
+</svg>
