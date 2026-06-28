@@ -53,10 +53,58 @@ class Contact(BaseModel):
 
 #     return {"success": True}
 
+import smtplib
+import traceback
+from email.mime.text import MIMEText
+
 @app.post("/contact")
 def contact(data: Contact):
-    return {
-        "success": True,
-        "email": EMAIL,
-        "password_exists": PASSWORD is not None
-    }
+    try:
+        print("Step 1")
+
+        body = f"""
+Name: {data.name}
+Email: {data.email}
+Subject: {data.subject}
+
+Message:
+{data.message}
+"""
+
+        msg = MIMEText(body)
+        msg["Subject"] = f"Portfolio Contact - {data.subject}"
+        msg["From"] = EMAIL
+        msg["To"] = EMAIL
+
+        print("Step 2")
+
+        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=20)
+
+        print("Step 3")
+
+        server.ehlo()
+
+        print("Step 4")
+
+        server.starttls()
+
+        print("Step 5")
+
+        server.login(EMAIL, PASSWORD)
+
+        print("Step 6")
+
+        server.send_message(msg)
+
+        print("Step 7")
+
+        server.quit()
+
+        return {"success": True}
+
+    except Exception as e:
+        traceback.print_exc()
+        return {
+            "error": str(e),
+            "type": type(e).__name__
+        }
