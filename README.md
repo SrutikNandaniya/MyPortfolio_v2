@@ -6,7 +6,7 @@ This portfolio showcases my projects, skills, experience, and achievements as an
 
 ## 🌐 Live Website
 
-> https://your-portfolio-link.com
+>https://srutikndn1.onrender.com
 
 ## 📌 About
 
