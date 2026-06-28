@@ -5,11 +5,14 @@ import smtplib
 import os
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
+import resend
 
 load_dotenv()
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
+resend.api_key = RESEND_API_KEY
 
 app = FastAPI()
 
@@ -52,59 +55,29 @@ class Contact(BaseModel):
 #         server.send_message(msg)
 
 #     return {"success": True}
-
-import smtplib
-import traceback
-from email.mime.text import MIMEText
-
 @app.post("/contact")
 def contact(data: Contact):
-    try:
-        print("Step 1")
 
-        body = f"""
-Name: {data.name}
-Email: {data.email}
-Subject: {data.subject}
+    html = f"""
+    <h2>New Portfolio Contact</h2>
 
-Message:
-{data.message}
-"""
+    <p><strong>Name:</strong> {data.name}</p>
 
-        msg = MIMEText(body)
-        msg["Subject"] = f"Portfolio Contact - {data.subject}"
-        msg["From"] = EMAIL
-        msg["To"] = EMAIL
+    <p><strong>Email:</strong> {data.email}</p>
 
-        print("Step 2")
+    <p><strong>Subject:</strong> {data.subject}</p>
 
-        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=20)
+    <p><strong>Message:</strong></p>
 
-        print("Step 3")
+    <p>{data.message}</p>
+    """
 
-        server.ehlo()
+    resend.Emails.send({
+        "from": "Portfolio <onboarding@resend.dev>",
+        "to": ["srutikndn@gmail.com"],
+        "subject": f"Portfolio Contact - {data.subject}",
+        "html": html,
+    })
 
-        print("Step 4")
+    return {"success": True}
 
-        server.starttls()
-
-        print("Step 5")
-
-        server.login(EMAIL, PASSWORD)
-
-        print("Step 6")
-
-        server.send_message(msg)
-
-        print("Step 7")
-
-        server.quit()
-
-        return {"success": True}
-
-    except Exception as e:
-        traceback.print_exc()
-        return {
-            "error": str(e),
-            "type": type(e).__name__
-        }
